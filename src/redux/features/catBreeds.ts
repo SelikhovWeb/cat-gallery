@@ -1,9 +1,10 @@
-import { createSlice, createAsyncThunk, AnyAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { CAT_API_HEADER, CAT_API_KEY } from '../../constants/API';
 
 export const getBreeds = createAsyncThunk<any[]>('breeds/getBreeds', async () => {
   return await fetch('https://api.thecatapi.com/v1/breeds', {
     headers: {
-      'x-api-key': 'e63e7ebf-7753-40d2-9aed-22354cab9561'
+      [CAT_API_HEADER]: CAT_API_KEY
     }
   }).then((res) => res.json());
 });
@@ -11,7 +12,7 @@ export const getBreeds = createAsyncThunk<any[]>('breeds/getBreeds', async () =>
 export const getNewPhoto = createAsyncThunk<any, string>('breeds/getNewPhoto', async (breedId) => {
   return await fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`, {
     headers: {
-      'x-api-key': 'e63e7ebf-7753-40d2-9aed-22354cab9561'
+      [CAT_API_HEADER]: CAT_API_KEY
     }
   }).then((res) => res.json());
 });

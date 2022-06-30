@@ -3,7 +3,7 @@ import './Button.css';
 
 interface ButtonProps {
   onClick?: () => void;
-  children?: ReactNode;
+  children: ReactNode;
   isInvisible?: boolean;
 }
 const Button: FC<ButtonProps> = ({ onClick, children, isInvisible }) => {
