@@ -1,0 +1,18 @@
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 8px 24px;
+  background: linear-gradient(180deg, #9b7efa 0%, #7e5ae1 100%);
+  color: white;
+  border-radius: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 80px;
+  margin-bottom: 8px;
+}
+
+.invisible {
+  display: none;
+}
