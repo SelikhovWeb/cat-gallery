@@ -17,6 +17,7 @@ import Button from '../Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { useSwiper } from 'swiper/react';
+import Slide from './Slide';
 
 const Gallery: FC = () => {
   const dispatch = useDispatch();
@@ -59,22 +60,7 @@ const Gallery: FC = () => {
           modules={[Lazy, Pagination, Navigation]}>
           {allBreeds.map((breed) => (
             <SwiperSlide key={breed?.name}>
-              <div className="gallery-slide-wrapper">
-                {breed?.image ? (
-                  <>
-                    <img data-src={breed?.image?.url} className="swiper-lazy breed-photo" />
-                    <div className="swiper-lazy-preloader swiper-lazy-preloader-black " />
-                  </>
-                ) : (
-                  <div className="no-image-message">
-                    Oops, something happened with image, please try another :(
-                  </div>
-                )}
-                <div className="breed-info">
-                  <div className="breed-name">{breed?.name}</div>
-                  <div className="breed-description">{breed?.description}</div>
-                </div>
-              </div>
+              <Slide key={breed.name} breed={breed} />
             </SwiperSlide>
           ))}
         </Swiper>
