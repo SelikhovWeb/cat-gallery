@@ -62,11 +62,7 @@ const Gallery: FC = () => {
               <div className="gallery-slide-wrapper">
                 {breed?.image ? (
                   <>
-                    <img
-                      data-src={breed?.image?.url}
-                      className="swiper-lazy breed-photo"
-                      alt={breed?.name}
-                    />
+                    <img data-src={breed?.image?.url} className="swiper-lazy breed-photo" />
                     <div className="swiper-lazy-preloader swiper-lazy-preloader-black " />
                   </>
                 ) : (

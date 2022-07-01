@@ -73,7 +73,7 @@
   z-index: 100;
 }
 
-.no-image-message{
+.no-image-message {
   width: 100%;
   height: 80%;
   display: flex;
@@ -94,7 +94,7 @@
     width: 100%;
     height: 60%;
   }
-  .no-image-message{
+  .no-image-message {
     height: 60%;
   }
   .breed-info {
@@ -134,7 +134,7 @@
     width: 100%;
     height: 70%;
   }
-  .no-image-message{
+  .no-image-message {
     height: 70%;
   }
   .breed-info {

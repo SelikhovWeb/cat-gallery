@@ -45,39 +45,32 @@ const breedSlice = createSlice({
       state.index -= 1;
     }
   },
-  extraReducers: {
-    // @ts-ignore
-    [getBreeds.pending]: (state) => {
+  extraReducers: (builder) => {
+    builder.addCase(getBreeds.pending, (state) => {
       state.status = Statuses.LOADING;
-    },
-    // @ts-ignore
-    [getBreeds.fulfilled]: (state, action) => {
+    });
+    builder.addCase(getBreeds.fulfilled, (state, action) => {
       state.status = Statuses.SUCCESS;
       state.allBreeds = action.payload;
-    },
-    // @ts-ignore
-    [getBreeds.rejected]: (state) => {
+    });
+    builder.addCase(getBreeds.rejected, (state) => {
       state.status = Statuses.FAILED;
-    },
-    // @ts-ignore
-    [getNewPhoto.pending]: (state) => {
+    });
+    builder.addCase(getNewPhoto.pending, (state) => {
       state.status = Statuses.LOADING;
-    },
-    // @ts-ignore
-    [getNewPhoto.fulfilled]: (state, action) => {
+    });
+    builder.addCase(getNewPhoto.fulfilled, (state, action) => {
       state.status = Statuses.SUCCESS;
       state.allBreeds = state.allBreeds.map((el: any) => {
         if (el.id === action.payload[0]?.breeds[0]?.id) {
           return { ...el, image: { ...el.image, url: action.payload[0]?.url } };
         }
-
         return el;
       });
-    },
-    // @ts-ignore
-    [getNewPhoto.rejected]: (state) => {
+    });
+    builder.addCase(getNewPhoto.rejected, (state) => {
       state.status = Statuses.FAILED;
-    }
+    });
   }
 });
 
